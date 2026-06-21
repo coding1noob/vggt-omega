@@ -1,0 +1,35 @@
+/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py:336: DeprecationWarning: The 'theme' parameter in the Blocks constructor will be removed in Gradio 6.0. You will need to pass 'theme' to Blocks.launch() instead.
+  with gr.Blocks(
+/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py:336: DeprecationWarning: The 'css' parameter in the Blocks constructor will be removed in Gradio 6.0. You will need to pass 'css' to Blocks.launch() instead.
+  with gr.Blocks(
+Traceback (most recent call last):
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/gradio/queueing.py", line 759, in process_events
+    response = await route_utils.call_process_api(
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/gradio/route_utils.py", line 354, in call_process_api
+    output = await app.get_blocks().process_api(
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/gradio/blocks.py", line 2191, in process_api
+    result = await self.call_function(
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/gradio/blocks.py", line 1698, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 2592, in run_sync_in_worker_thread
+    return await future
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 1029, in run
+    result = context.run(func, *args)
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/gradio/utils.py", line 915, in wrapper
+    response = f(*args, **kwargs)
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py", line 318, in reconstruct
+    return gradio_demo(
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py", line 190, in gradio_demo
+    predictions = run_model(target_dir, model, image_resolution)
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py", line 44, in run_model
+    images = load_and_preprocess_images(image_names, image_resolution=image_resolution).to("cuda")
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/vggt_omega/utils/load_fn.py", line 38, in load_and_preprocess_images
+    image = _crop_to_supported_aspect_ratio(_load_rgb_image(image_path))
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/vggt_omega/utils/load_fn.py", line 61, in _load_rgb_image
+    with Image.open(image_path) as image:
+  File "/data2/buaajianghengchen/conda_envs/vggtomega/lib/python3.10/site-packages/PIL/Image.py", line 3580, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'demo_outputs/input_images_20260621_082045_410412/images/images'
+slurmstepd-user-NF5468-M7-A0-R0-00: error: *** JOB 216 ON user-NF5468-M7-A0-R0-00 CANCELLED AT 2026-06-21T08:34:59 ***

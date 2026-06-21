@@ -99,21 +99,16 @@ def build_colmap_reconstruction_wo_track(
                 params=pycolmap_intri,
                 camera_id=frame_idx + 1,
             )
-            reconstruction.add_camera(camera)
+            reconstruction.add_camera_with_trivial_rig(camera)
 
         cam_from_world = pycolmap.Rigid3d(
             pycolmap.Rotation3d(extrinsics[frame_idx][:3, :3]),
             extrinsics[frame_idx][:3, 3],
         )
-        image = pycolmap.Image(
-            id=frame_idx + 1,
-            name=image_names[frame_idx],
-            camera_id=camera.camera_id,
-            cam_from_world=cam_from_world,
-        )
 
         points2d_list = []
         point2d_idx = 0
+        image_id = frame_idx + 1
         points_belong_to_frame = np.nonzero(points_xyf[:, 2].astype(np.int32) == frame_idx)[0]
 
         for point3d_batch_idx in points_belong_to_frame:
@@ -122,15 +117,15 @@ def build_colmap_reconstruction_wo_track(
             points2d_list.append(pycolmap.Point2D(point2d_xy, point3d_id))
 
             track = reconstruction.points3D[point3d_id].track
-            track.add_element(frame_idx + 1, point2d_idx)
+            track.add_element(image_id, point2d_idx)
             point2d_idx += 1
 
-        if points2d_list:
-            image.points2D = pycolmap.ListPoint2D(points2d_list)
-            image.registered = True
-        else:
-            image.registered = False
-
-        reconstruction.add_image(image)
+        image = pycolmap.Image(
+            name=image_names[frame_idx],
+            camera_id=camera.camera_id,
+            image_id=image_id,
+            points2D=pycolmap.Point2DList(points2d_list),
+        )
+        reconstruction.add_image_with_trivial_frame(image, cam_from_world)
 
     return reconstruction

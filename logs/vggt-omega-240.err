@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/vggt_omega/utils/colmap_export.py", line 10, in <module>
+    import pycolmap
+ModuleNotFoundError: No module named 'pycolmap'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_colmap.py", line 245, in <module>
+    main()
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_colmap.py", line 220, in main
+    require_pycolmap()
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/vggt_omega/utils/colmap_export.py", line 20, in require_pycolmap
+    raise ImportError(
+ImportError: pycolmap is required for COLMAP export. Install it with `pip install pycolmap` or `pip install 'vggt-omega[export]'`.

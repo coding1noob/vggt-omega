@@ -1,0 +1,5 @@
+/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py:336: DeprecationWarning: The 'theme' parameter in the Blocks constructor will be removed in Gradio 6.0. You will need to pass 'theme' to Blocks.launch() instead.
+  with gr.Blocks(
+/data2/buaajianghengchen/storageCode/vggt-omega/demo_gradio.py:336: DeprecationWarning: The 'css' parameter in the Blocks constructor will be removed in Gradio 6.0. You will need to pass 'css' to Blocks.launch() instead.
+  with gr.Blocks(
+slurmstepd-user-NF5468-M7-A0-R0-00: error: *** JOB 218 ON user-NF5468-M7-A0-R0-00 CANCELLED AT 2026-06-21T09:27:45 ***

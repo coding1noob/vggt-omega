@@ -1,0 +1,11 @@
+E20260621 18:44:57.403566 131428280497984 helpers.h:113] Internal AttributeError: 'pycolmap._core.Image' object has no attribute 'id'
+Traceback (most recent call last):
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_colmap.py", line 245, in <module>
+    main()
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_colmap.py", line 241, in main
+    run_feedforward_export(args, predictions_np, image_names)
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/demo_colmap.py", line 194, in run_feedforward_export
+    reconstruction = build_colmap_reconstruction_wo_track(
+  File "/data2/buaajianghengchen/storageCode/vggt-omega/vggt_omega/utils/colmap_export.py", line 108, in build_colmap_reconstruction_wo_track
+    image = pycolmap.Image(
+AttributeError: 'pycolmap._core.Image' object has no attribute 'id'
